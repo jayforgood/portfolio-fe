@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 
 const { Header, Footer, Sider, Content } = Layout;
 
-const headerStyle: React.CSSProperties = {
+const headerStyle = {
   textAlign: "center",
   color: "#fff",
   height: 64,
@@ -15,22 +15,20 @@ const headerStyle: React.CSSProperties = {
   lineHeight: "64px",
   backgroundColor: "#7dbcea",
 };
-
-const contentStyle: React.CSSProperties = {
+const contentStyle = {
   textAlign: "center",
   minHeight: 120,
   lineHeight: "120px",
   color: "#fff",
   backgroundColor: "#108ee9",
 };
-
-const siderStyle: React.CSSProperties = {
+const siderStyle = {
   textAlign: "center",
   lineHeight: "120px",
   color: "#fff",
   backgroundColor: "#3ba0e9",
 };
-const footerStyle: React.CSSProperties = {
+const footerStyle = {
   textAlign: "center",
   color: "#fff",
   backgroundColor: "#7dbcea",
