@@ -1,43 +1,50 @@
+// import React from "react";
+import "./Nav.css";
 import { AppstoreOutlined, MailOutlined } from "@ant-design/icons";
 import React, { Component } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { LIST } from "@assets/js/dummy/constants";
 import { Menu } from "antd";
 import Project from "@pages/Project";
+import { Layout, Space, theme } from "antd";
 
-// const Nav = () => {
-// }
-// export default Nav
-// function getItem(label, key, icon, children) {
-//   return {
-//     key,
-//     icon,
-//     children,
-//     label,
-//   };
-// }
-// const items = [
-//   getItem('Navigation One', '1', <MailOutlined />),
-//   getItem('Navigation Two', '2', <CalendarOutlined />),
-//   getItem('Navigation Two', 'sub1', <AppstoreOutlined />, [
-//     getItem('Option 3', '3'),
-//     getItem('Option 4', '4'),
-//     getItem('Submenu', 'sub1-2', null, [getItem('Option 5', '5'), getItem('Option 6', '6')]),
-//   ]),
-//   getItem('Navigation Three', 'sub2', <SettingOutlined />, [
-//     getItem('Option 7', '7'),
-//     getItem('Option 8', '8'),
-//     getItem('Option 9', '9'),
-//     getItem('Option 10', '10'),
-//   ]),
-//   getItem(
-//     <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-//       Ant Design
-//     </a>,
-//     'link',
-//     <LinkOutlined />,
-//   ),
-// ];
+const { Header, Footer, Sider, Content } = Layout;
+
+// const headerStyle = {
+//   textAlign: "center",
+//   color: "#fff",
+//   height: 64,
+//   paddingInline: 50,
+//   lineHeight: "64px",
+//   backgroundColor: "#7dbcea",
+// };
+// const contentStyle = {
+//   // textAlign: "left",
+//   minHeight: 120,
+//   lineHeight: "120px",
+//   // color: "#fff",
+//   // backgroundColor: "#108ee9",
+// };
+// const siderStyle = {
+//   textAlign: "center",
+//   lineHeight: "120px",
+//   color: "#fff",
+//   backgroundColor: "#3ba0e9",
+// };
+// const footerStyle = {
+//   textAlign: "center",
+//   color: "#fff",
+//   backgroundColor: "#7dbcea",
+// };
+
+// const logoStyle = {
+//   float: "left",
+//   width: "120px",
+//   height: "31px",
+//   margin: "16px 24px 16px 0",
+//   background: "rgba(255, 255, 255, 0.3)",
+// };
+
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -47,40 +54,71 @@ function getItem(label, key, icon, children) {
   };
 }
 
-const items = [
-  getItem(LIST[0].title, "1", <MailOutlined />),
-  getItem(LIST[2].title, "2", <MailOutlined />),
-  getItem(
-    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-      Ant Design
-    </a>,
-    "link",
-    <MailOutlined />
-  ),
-];
-
 class Nav extends Component {
+  // const Nav = () => {
   state = {};
 
   render() {
     return (
       <>
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          // items={items}
-          items={LIST.map((item, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: item.title,
-            };
-          })}
-        />
-        <main>
-          <Outlet />
-        </main>
+        {/* <Space
+          direction="vertical"
+          style={{ width: "100%", hight: "100%" }}
+          size={[0, 48]}
+        > */}
+        <Layout>
+          <Header className="header" theme="light">
+            <div className="logo" />
+            <div
+              style={{
+                height: 32,
+                width: 100,
+                margin: 16,
+                background: "rgba(200, 200, 200, 0.2)",
+              }}
+            />
+          </Header>
+          <Layout>
+            <Sider breakpoint="md" collapsedWidth="0" width={200}>
+              {/* <div className="logo" /> */}
+              <Menu
+                // style={{
+                //   width: 256,
+                // }}
+                style={{
+                  height: "100%",
+                  borderRight: 0,
+                }}
+                theme="light"
+                mode="inline"
+                defaultSelectedKeys={["1"]}
+                // items={items}
+                items={LIST.map((item, index) => {
+                  const key = index + 1;
+                  return {
+                    key,
+                    label: item.title,
+                  };
+                })}
+              />
+            </Sider>
+            <Layout
+              style={{
+                padding: "0 24px 24px",
+              }}
+            >
+              <Outlet />
+            </Layout>
+          </Layout>
+          <Footer
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Jay ©2023 Created by Jaehoon Lee
+          </Footer>
+        </Layout>
+        {/* </Space> */}
       </>
     );
   }

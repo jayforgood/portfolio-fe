@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { PROJECT_LIST } from "@assets/js/dummy/constants";
 
 import { List, Breadcrumb, Image } from "antd";
+import { Layout } from "antd";
+
+const { Content } = Layout;
 
 // const positionOptions = ["top", "bottom", "both"];
 // const alignOptions = ["start", "center", "end"];
@@ -15,34 +18,38 @@ class Project extends Component {
     // const [align, setAlign] = useState("center");
 
     return (
-      <div>
-        {/* <p>Project</p>
-        {PROJECT_LIST.map((li) => {
-          return <ProjectList key={li.id} {...li} />;
-        })} */}
-        {/* <Divider plain>Previous work</Divider> */}
-        <Breadcrumb>
+      <>
+        <Breadcrumb
+          style={{
+            margin: "16px 0",
+          }}
+        >
           <Breadcrumb.Item>Previous work</Breadcrumb.Item>
         </Breadcrumb>
-        <List
-          //pagination={{ position, align }}
-          dataSource={PROJECT_LIST}
-          renderItem={(item) => (
-            <List.Item>
-              <Image width={100} src={item.imageUrl} />
-              <List.Item.Meta
-                title={<a href="https://ant.design">{item.title}</a>}
-                description={item.desc}
-              />
-              {/* front:{item.front} back:{item.back} hw:{item.hw} */}
-            </List.Item>
-          )}
-        />
-        {/* <p>Content</p>
-                <Intro>인트로</Intro>
-                <Project>프로젝트</Project>
-                <Contact>컨텍트</Contact> */}
-      </div>
+        <Content
+          style={{
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+            // background: "#dbdbdb",
+          }}
+        >
+          <List
+            //pagination={{ position, align }}
+            dataSource={PROJECT_LIST}
+            renderItem={(item) => (
+              <List.Item>
+                <Image width={100} src={item.imageUrl} />
+                <List.Item.Meta
+                  title={<a href="https://ant.design">{item.title}</a>}
+                  description={item.desc}
+                />
+                {/* front:{item.front} back:{item.back} hw:{item.hw} */}
+              </List.Item>
+            )}
+          />
+        </Content>
+      </>
     );
   }
 }
