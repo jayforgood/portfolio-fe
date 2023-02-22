@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { LIST } from "../assets/js/dummy/constants";
+import { Menu } from "antd";
 
 class Nav extends Component {
   state = {};
@@ -7,12 +8,18 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        <p>Nav</p>
-        <div>
-          {LIST.map((li, idx) => {
-            return <li key={idx}>{li}</li>;
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={["2"]}
+          items={LIST.map((item, index) => {
+            const key = index + 1;
+            return {
+              key,
+              label: `${item}`,
+            };
           })}
-        </div>
+        />
       </div>
     );
   }
