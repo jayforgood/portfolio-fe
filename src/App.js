@@ -53,7 +53,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Nav />}>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Intro />} />
         <Route path="/project" element={<Project />} />
 
         {/* <Route path="/stores/:storeId/*" element={<Store />} />
