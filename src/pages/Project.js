@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import ProjectList from "./ProjectList";
-import { PROJECT_LIST } from "../assets/js/dummy/constants";
+// import ProjectList from "@ProjectList";
+import { PROJECT_LIST } from "@assets/js/dummy/constants";
 
 import { List, Breadcrumb, Image } from "antd";
 

@@ -1,4 +1,34 @@
-export const LIST = ["Intro", "Previous work", "Contact"];
+import { Link } from "react-router-dom";
+
+export const LIST = [
+  {
+    title: (
+      // <a href="/" target="_blank" rel="noopener noreferrer">
+      //   Intro
+      // </a>
+      <Link to="/">Intro</Link>
+    ),
+    siteUrl: "/",
+  },
+  {
+    title: (
+      // <a href="/project" target="_blank" rel="noopener noreferrer">
+      //   Project
+      // </a>
+      <Link to="/project">Project</Link>
+    ),
+    siteUrl: "/project",
+  },
+  {
+    title: (
+      // <a href="/contact" target="_blank" rel="noopener noreferrer">
+      //   Contact
+      // </a>
+      <Link to="/contact">Contact</Link>
+    ),
+    siteUrl: "/contact",
+  },
+];
 
 export const PROJECT_LIST = [
   {
